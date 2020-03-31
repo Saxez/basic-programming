@@ -19,7 +19,7 @@ BEGIN{ReadDigit}
       IF Ch = '6' THEN D := 6 ELSE
       IF Ch = '7' THEN D := 7 ELSE
       IF Ch = '8' THEN D := 8 ELSE
-      IF Ch = '9' THEN D := 9 ELSE             
+      IF Ch = '9' THEN D := 9            
     END
 END;{ReadDigit}
 BEGIN{task1}
