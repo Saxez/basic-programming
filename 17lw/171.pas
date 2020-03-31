@@ -6,7 +6,7 @@ VAR
   Ch: CHAR;
 BEGIN{ReadDigit}
   D := -1;
-  IF NOT EOLN(F)
+  IF NOT EOLN(F) 
   THEN
     BEGIN
       READ(F, Ch); 
@@ -19,7 +19,7 @@ BEGIN{ReadDigit}
       IF Ch = '6' THEN D := 6 ELSE
       IF Ch = '7' THEN D := 7 ELSE
       IF Ch = '8' THEN D := 8 ELSE
-      D := 9              
+      IF Ch = '9' THEN D := 9 ELSE             
     END
 END;{ReadDigit}
 BEGIN{task1}
