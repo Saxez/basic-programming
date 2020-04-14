@@ -5,6 +5,7 @@ VAR
   IntSet: SET OF 2..Max;
   Counter, Position: INTEGER;
 BEGIN
+  WRITE('all prime numbers from 2 to ', Max, ': ');
   IntSet := [2..Max];
   Position := 2;
   Counter := 2;
@@ -28,4 +29,4 @@ BEGIN
       Counter := Counter + 1
     END;
   READLN
-END.
+END..
