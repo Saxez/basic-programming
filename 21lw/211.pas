@@ -50,7 +50,7 @@ VAR
 BEGIN {Encode}
   FOR Index := 1 TO Length
   DO
-    IF S[Index] IN [' ' .. 'Z']
+    IF S[Index] IN (['A' .. 'Z'] + [' '])
     THEN
       WRITE(Code[S[Index]])
     ELSE
