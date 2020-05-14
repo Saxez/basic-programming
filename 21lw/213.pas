@@ -52,13 +52,17 @@ BEGIN {Encode}
   FOR Index := 1 TO Len
   DO
     BEGIN
-      IF (S[Index] IN FullSet) 
+      IF NOT (S[Index] IN FullSet) 
       THEN
+        WRITE(S[Index])
+      ELSE
         FOR I:= ' ' TO 'Z'
         DO
-          IF S[Index] = Code[I]
-          THEN
-            WRITE(I);
+          BEGIN
+            IF S[Index] = Code[I]
+            THEN
+              WRITE(I);
+          END;
     END;
   WRITELN
 END;  {Encode}
