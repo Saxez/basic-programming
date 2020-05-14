@@ -1,32 +1,56 @@
-PROGRAM Task1(INPUT, OUTPUT);
+PROGRAM isPrime(INPUT, OUTPUT);
 CONST
   Max = 100;
+  Min = 2;
+TYPE
+  SetOfNumbers = SET  OF Min..Max;
 VAR
-  IntSet: SET OF 2..Max;
-  Counter, Position: INTEGER;
-BEGIN
-  WRITE('all prime numbers from 2 to ', Max, ': ');
-  IntSet := [2..Max];
-  Position := 2;
-  Counter := 2;
-  WHILE (Counter <= Max)
+  IntSet: SetOfNumbers;
+PROCEDURE WriteSet(VAR SetFin: SetOfNumbers; VAR FOut: TEXT);
+{Выводит в файл множество}
+VAR
+  J: INTEGER;
+BEGIN{WriteSet}
+  J := Min;
+  WRITE(FOut, '{ ');
+  WHILE J <= Max
   DO
     BEGIN
-      Position := 2;
-      IF (Counter IN IntSet)
+      IF J IN SetFin
       THEN
-        BEGIN
-          WRITE(Counter, ' ');
-          WHILE (Position <= Max)
+         WRITE(FOut, J, ' ');
+      J := J + 1
+    END;
+  WRITELN(FOut, '}')
+END;{WriteSet}
+PROCEDURE GetPrimeSet(VAR SetUnfin: SetOfNumbers; VAR FOut: TEXT);
+{Алгоритм поиска }
+VAR
+  I, J, Prime: INTEGER;  
+BEGIN{GetPrimeSet}
+  I := Min;
+  WHILE I * I <= Max
+  DO
+    BEGIN
+      J := I;
+      IF J IN SetUnfin
+      THEN
+        BEGIN 
+          Prime := J;
+          J := J + Prime;
+          WHILE J <= Max
           DO
             BEGIN
-              IF (Position MOD Counter = 0)
-              THEN
-                IntSet := IntSet - [Position];
-              Position := Position +1
-            END  
-        END;
-      Counter := Counter + 1
+              SetUnfin := SetUnfin - [J];  
+              J := J + Prime;
+            END;
+          WRITELN(FOut, 'на данном этпае: ');
+          WriteSet(SetUnfin, FOut);
+        END; 
+      I := I + 1; 
     END;
-  READLN
-END..
+END;{GetPrimeNumber}
+BEGIN {isPrime}
+  IntSet := [Min..Max];
+  GetPrimeSet(IntSet, OUTPUT)
+END. {isPrime}
