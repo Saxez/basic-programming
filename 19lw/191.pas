@@ -29,7 +29,7 @@ BEGIN {isPrime}
       I := I + 1; 
     END;
   J := Min;
-  WRITE(OUTPUT, '{ ');
+  WRITE(OUTPUT,'Все простые числа до ', Max, ' :{ ');
   WHILE J <= Max
   DO
     BEGIN
