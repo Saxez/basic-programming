@@ -76,7 +76,7 @@ BEGIN {Encryption}
           BEGIN
             I := I + 1;
             Length := I;
-            READ(Msg[I]);
+            READ(Msg[I])
           END;
         READLN;
         IF (I > 0)
