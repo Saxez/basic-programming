@@ -40,8 +40,8 @@ BEGIN {Initialize}
         END;
       Ch3 := Ch2;
       Ch2 := Ch1;
-      READ(Chip, Ch1);
-    END;
+      READ(Chip, Ch1)
+    END
 END;  {Initialize}
  
 PROCEDURE Encode(VAR S: Str; VAR FullSet: CharSet);
