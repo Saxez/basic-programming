@@ -5,8 +5,8 @@ CONST
 TYPE
   Matrix = SET OF Min..Max;
 VAR
-  Ch: CHAR;
-  Sym: Matrix;
+  ChReadable: CHAR;
+  SetAvailable: Matrix;
 
 PROCEDURE Identification(VAR ChChecked: CHAR; VAR SetNull: Matrix);
 BEGIN{Identification}
@@ -64,13 +64,13 @@ BEGIN{WriteSymbol}
   IF NOT EOLN
   THEN
     BEGIN
-      READ(INPUT, Ch);
-      Identification(Ch, Sym);
-      IF (Sym = [])
+      READ(INPUT, ChReadable);
+      Identification(ChReadable, SetAvailable);
+      IF (SetAvailable = [])
       THEN
         WRITELN('This sign is not recorded')
       ELSE
-        WriteX(Sym)
+        WriteX(SetAvailable)
     END
   ELSE
     WRITELN('Input is empty')
