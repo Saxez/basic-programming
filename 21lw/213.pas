@@ -1,4 +1,4 @@
-PROGRAM Encryption(INPUT, OUTPUT);
+PROGRAM Decryption(INPUT, OUTPUT);
 {Переводит символы из INPUT в код согласно Chiper 
   и печатает новые символы в OUTPUT}
 CONST
@@ -40,8 +40,8 @@ BEGIN {Initialize}
         END;
       Ch3 := Ch2;
       Ch2 := Ch1;
-      READ(Chip, Ch1);
-    END;
+      READ(Chip, Ch1)
+    END
 END;  {Initialize}
  
 PROCEDURE Decode(VAR S: Str; VAR FullSet: CharSet); 
@@ -61,8 +61,8 @@ BEGIN {Encode}
           BEGIN
             IF S[Index] = Code[I]
             THEN
-              WRITE(I);
-          END;
+              WRITE(I)
+          END
     END;
   WRITELN
 END;  {Encode}
@@ -84,12 +84,12 @@ BEGIN {Encryption}
           BEGIN
             I := I + 1;
             Length := I;
-            READ(Msg[I]);
+            READ(Msg[I])
           END;
         READLN;
         IF (I > 0)
         THEN
-          Decode(Msg, AvailableSet);
+          Decode(Msg, AvailableSet)
       END
   ELSE
     WRITE('error');
