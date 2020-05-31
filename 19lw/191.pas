@@ -6,34 +6,15 @@ TYPE
   SetOfNumbers = SET  OF Min..Max;
 VAR
   IntSet: SetOfNumbers;
-PROCEDURE WriteSet(VAR SetFin: SetOfNumbers; VAR FOut: TEXT);
-{Выводит в файл множество}
-VAR
-  J: INTEGER;
-BEGIN{WriteSet}
-  J := Min;
-  WRITE(FOut, '{ ');
-  WHILE J <= Max
-  DO
-    BEGIN
-      IF J IN SetFin
-      THEN
-         WRITE(FOut, J, ' ');
-      J := J + 1
-    END;
-  WRITELN(FOut, '}')
-END;{WriteSet}
-PROCEDURE GetPrimeSet(VAR SetUnfin: SetOfNumbers; VAR FOut: TEXT);
-{Алгоритм поиска }
-VAR
-  I, J, Prime: INTEGER;  
-BEGIN{GetPrimeSet}
+  I, J, Prime: INTEGER;
+BEGIN {isPrime}
+  IntSet := [Min..Max];
   I := Min;
   WHILE I * I <= Max
   DO
     BEGIN
       J := I;
-      IF J IN SetUnfin
+      IF J IN IntSet
       THEN
         BEGIN 
           Prime := J;
@@ -41,16 +22,21 @@ BEGIN{GetPrimeSet}
           WHILE J <= Max
           DO
             BEGIN
-              SetUnfin := SetUnfin - [J];  
+              IntSet := IntSet - [J];  
               J := J + Prime;
             END;
-          WRITELN(FOut, 'на данном этпае: ');
-          WriteSet(SetUnfin, FOut);
         END; 
       I := I + 1; 
     END;
-END;{GetPrimeNumber}
-BEGIN {isPrime}
-  IntSet := [Min..Max];
-  GetPrimeSet(IntSet, OUTPUT)
+  J := Min;
+  WRITE(OUTPUT, '{ ');
+  WHILE J <= Max
+  DO
+    BEGIN
+      IF J IN IntSet
+      THEN
+        WRITE(OUTPUT, J, ' ');
+      J := J + 1
+    END;
+  WRITE(OUTPUT, '}')
 END. {isPrime}
