@@ -5,7 +5,7 @@ INTERFACE
     NodeType = RECORD
                  Word: STRING;
                  LLink, RLink: Tree;
-                 Amount: INTEGER;
+                 Amount: INTEGER
                END;
   PROCEDURE Insert(VAR Ptr:Tree; VAR Data: STRING);
   PROCEDURE PrintTree(VAR Ptr: Tree; VAR FOut: TEXT);
@@ -54,5 +54,6 @@ IMPLEMENTATION
         Ptr := NIL
       END
   END; {ClearTree}
+BEGIN
 END.
 

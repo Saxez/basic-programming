@@ -39,5 +39,6 @@ IMPLEMENTATION
         WordTree := WordTree + Ch
       END
   END;{GetWord}
+BEGIN
 END.
 
