@@ -4,6 +4,7 @@ INTERFACE
     AlphabetUp = ['A'..'Z', 'À'..'ß', '¨'];
     AlphabetDown = ['a'..'z', 'à'..'ÿ', '¸'];
     Alphabet = AlphabetUp + AlphabetDown;
+    LetterChange = 32;
   PROCEDURE GetWord(VAR FInput: TEXT; VAR WordTree: STRING);
 IMPLEMENTATION
   PROCEDURE Checking(VAR Uncheked: CHAR);
@@ -13,7 +14,7 @@ IMPLEMENTATION
       Uncheked := 'å';
     IF (Uncheked IN AlphabetUp)
     THEN 
-      Uncheked := CHR(ORD(Uncheked) + 32);
+      Uncheked := CHR(ORD(Uncheked) + LetterChange);
   END;{Checking}
   PROCEDURE GetWord(VAR FInput: TEXT; VAR WordTree: STRING);
   VAR
